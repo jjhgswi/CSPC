@@ -57,3 +57,32 @@ All 3 tests passed successfully.
 I learned how to use Git, GitHub, Conda environments and pytest.
 Also I tested the radioactive decay simulation and compared the speed between the versions.
 Al tests passeed, NumPy version was the fastest.
+
+---
+
+## PW1 LAB B - Data, Plotting, and Automation.
+
+**Data** 
+
+The observed decay data was read from decay_observed.csv.
+The data contains time and count values.
+
+**Plot**
+
+I compared the observed data with the analytical exponential decay law.
+The observed data followed the general decreasing shape of the analytical curve, but the observed points did not match the curve exactly.
+
+**What I built**
+
+A Python script called plot.py that reads the observed data and creates a figure with two plots:
+the observed data on the left and the analytical decay curve on the right.
+
+**Snakemake**
+
+I created a Snakefile to automate the plotting process.
+The pipeline uses decay_observed.csv as input and runs plot.py to create figure.png.
+Snakemake only runs the step again when the input files or the script have changed.
+
+**Conclusion**
+
+I learned how to read data from a CSV file, plot observed and analytical data with Python, and use Snakemake to automate the process.
