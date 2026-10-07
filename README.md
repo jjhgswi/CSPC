@@ -86,3 +86,111 @@ Snakemake only runs the step again when the input files or the script have chang
 **Conclusion**
 
 I learned how to read data from a CSV file, plot observed and analytical data with Python, and use Snakemake to automate the process.
+
+---
+
+## PW2 LAB A - Motion from Tracking Data.
+
+**Data**
+
+The free-fall data was read from freefall.csv.
+The data contains time and position values.
+
+**What I built**
+
+A Python script called analysis.py that reads the free-fall data and calculates velocity and acceleration using numerical differentiation with NumPy.
+Velocity was calculated from position using np.gradient.
+Acceleration was calculated from velocity using np.gradient again.
+
+**Acceleration**
+
+The theoretical gravitational acceleration is approximately -9.81 m/s^2
+
+Mean acceleration: -8.57968750000008 m/s^2
+Standard deviation: 28.7161257217062 m/s^2
+
+The acceleration data was noisy because numerical differentiation amplifies noise.
+
+**Integration**
+
+I used cumulative_trapezoid to integrate the acceleration and recover velocity and position.
+The recovered velocity was calculated from the acceleration, and the recovered position was calculated from the recovered velocity.
+
+**Plot**
+
+I created a figure called motion.png with three plots: position, velocity and acceleration versus time.
+A dashed line at -9.81 m/s^2 was added to the acceleration plot to show the theoretical gravitational acceleration.
+
+**Conclusion**
+
+I learned how to read motion data from a CSV file, calculate velocity and acceleration using numerical differentiation, and integrate acceleration to recover velocity and position.
+I also learned that differentiation can amplify noise in experimental data.
+
+---
+
+## PW2 LAB B - Optimization in Chemistry.
+
+**Data**
+
+The lab contains several Python scripts for optimization and chemical calculations.
+The data and calculations were used to study kinetics, chemical equilibrium and titration.
+
+**Comparison of optimization methods**
+
+Three methods were compared in the warmup part.
+
+For 2A:
+Gradient descent: 2.9999963220107015
+Newton: 3.0
+SLSQP: 3.0
+
+For 2B:
+Gradient descent: 1.1309102497941645
+Newton: 1.1309011226299859
+d2g: 9.347248189989148
+SLSQP: -1.3006394477423422
+
+For 2A, all three methods gave almost the same result.
+For 2B, gradient descent and Newton gave very similar results, while SLSQP found a different minimum.
+
+**Kinetics**
+
+A Python script called kinetics.py was created to fit the rate constant k for a first-order reaction.
+The reaction follows:
+C(t) = C0 * exp(-k*t)
+The SLSQP optimization method was used to find the value of k.
+
+Result:
+SLSQP: 0.26176032098825625
+
+The program also produced kinetics.png with the measured data and the fitted curve.
+
+**Equilibrium**
+
+A Python script called equilibrium.py was created for the reaction:
+H2 + I2 <=> 2 HI
+The equilibrium extent x was found using two different methods.
+
+Newton result: 0.6638476669609822
+SLSQP result: 0.6638476153090014
+
+The two methods gave almost the same result.
+
+The equilibrium amounts were:
+H2: 0.3361523330390178 mol
+I2: 0.3361523330390178 mol
+HI: 1.3276953339219644 mol
+
+The equilibrium plot was saved as equilibrium.png.
+
+**Titration**
+
+The titration.py script was used to find the equivalence point.
+Equivalence point: 50.0
+The titration plot was saved as titration.png.
+
+**Conclusion**
+
+I learned how to use optimization methods in Python for chemical problems.
+I used SLSQP and Newton's method to solve different problems.
+I also fitted a reaction rate constant, calculated chemical equilibrium and found the equivalence point in a titration.
